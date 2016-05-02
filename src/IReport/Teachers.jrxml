@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Teachers" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7378276-1652-42a6-b32a-c7e96a0cb200">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     teachers.`ID` AS teachers_ID,
+     teachers.`Name` AS teachers_Name,
+     teachers.`Department` AS teachers_Department,
+     teachers.`Designation` AS teachers_Designation,
+     teachers.`Mobile` AS teachers_Mobile,
+     teachers.`Email` AS teachers_Email,
+     teachers.`Photo` AS teachers_Photo,
+     teachers.`Address` AS teachers_Address
+FROM
+     `teachers` teachers]]>
+	</queryString>
+	<field name="teachers_ID" class="java.lang.String"/>
+	<field name="teachers_Name" class="java.lang.String"/>
+	<field name="teachers_Department" class="java.lang.String"/>
+	<field name="teachers_Designation" class="java.lang.String"/>
+	<field name="teachers_Mobile" class="java.lang.String"/>
+	<field name="teachers_Email" class="java.lang.String"/>
+	<field name="teachers_Photo" class="java.lang.String"/>
+	<field name="teachers_Address" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="211" y="0" width="344" height="53" uuid="ba4cba18-9399-4055-81e3-db458f8d53ab"/>
+				<textElement>
+					<font size="40"/>
+				</textElement>
+				<text><![CDATA[Teachers Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b6773cf8-bf4a-4c01-bd69-5b632bb66c2e"/>
+				<text><![CDATA[teachers_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="8e474f75-d29f-4a31-9747-38b335796694"/>
+				<text><![CDATA[teachers_Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="0" width="100" height="20" uuid="d7c96169-98f0-416a-ba39-f7704d0483f9"/>
+				<text><![CDATA[teachers_Department]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="0" width="100" height="20" uuid="e4865f2b-520f-4bdb-96ba-8e0fd588100a"/>
+				<text><![CDATA[teachers_Mobile]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="0" width="100" height="20" uuid="da5f99fd-f9fb-49e2-83b9-1fe0214adf25"/>
+				<text><![CDATA[teachers_Email]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="6f78e883-f608-4851-9aef-2e202f24a9d1"/>
+				<textFieldExpression><![CDATA[$F{teachers_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="0" width="100" height="20" uuid="1f850f43-7f11-4f42-8cc1-588aa80c181e"/>
+				<textFieldExpression><![CDATA[$F{teachers_Department}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="12535dc9-4675-42be-95d9-58012b0dc05b"/>
+				<textFieldExpression><![CDATA[$F{teachers_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="0" width="100" height="20" uuid="ba9cdead-6954-4334-ba59-2c1eb02ef77e"/>
+				<textFieldExpression><![CDATA[$F{teachers_Mobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="2" width="100" height="20" uuid="6b4b38fa-116f-49b1-979e-3d317c9ac9e9"/>
+				<textFieldExpression><![CDATA[$F{teachers_Email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

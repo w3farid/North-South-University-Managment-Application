@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="testReoport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e338fc93-b29d-4b32-9d4f-2aa8c4c2f611">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="book_id" class="java.lang.String"/>
+	<parameter name="book_id2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     lb_books.`book_id` AS lb_books_book_id,
+     lb_books.`book_name` AS lb_books_book_name,
+     lb_books.`quantity` AS lb_books_quantity
+FROM
+     `lb_books` lb_books
+where lb_books.`book_id`=$P{book_id} && lb_books.`book_id`=$P{book_id2}]]>
+	</queryString>
+	<field name="lb_books_book_id" class="java.lang.Integer"/>
+	<field name="lb_books_book_name" class="java.lang.String"/>
+	<field name="lb_books_quantity" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="f56fec18-a43a-42b8-ac57-ef38955fb8a0"/>
+				<text><![CDATA[lb_books_book_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="2" width="100" height="20" uuid="15f38a10-9e0e-4cb4-9ff4-fe31c0cc47c2"/>
+				<text><![CDATA[lb_books_book_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="2" width="100" height="20" uuid="cdd0af2d-6a63-4ca1-9935-27256b5eadaf"/>
+				<text><![CDATA[lb_books_quantity]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="9f4d349b-146a-477f-987b-d149c91f9dfb"/>
+				<textFieldExpression><![CDATA[$F{lb_books_book_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="5" width="100" height="20" uuid="e7ac953d-f561-472b-9965-b95975e27f00"/>
+				<textFieldExpression><![CDATA[$F{lb_books_book_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="6" width="100" height="20" uuid="41fbe222-9ceb-4e89-8b07-d10be9fc525d"/>
+				<textFieldExpression><![CDATA[$F{lb_books_quantity}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
