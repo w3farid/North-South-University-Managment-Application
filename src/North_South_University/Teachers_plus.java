@@ -184,6 +184,11 @@ public class Teachers_plus extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bangla", "English", "Math", "Accounting" }));
 
@@ -457,6 +462,16 @@ public class Teachers_plus extends javax.swing.JFrame {
             image.setIcon(iconS);
             image.setText("");
     }//GEN-LAST:event_imageMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       jTextField1.setText("");
+       jTextField2.setText("");
+       jTextField3.setText("");
+       jTextField4.setText("");
+       jTextField5.setText("");
+       jTextField6.setText("");
+       jComboBox1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
     boolean id() {
         String id = "[0-9]*";
         if (jTextField1.getText().matches(id)) {

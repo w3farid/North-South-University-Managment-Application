@@ -390,7 +390,7 @@ public class N_main extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        
+        new Accounts().setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked

@@ -347,8 +347,9 @@ public class Teachers_update extends javax.swing.JFrame {
             String address = jTextField5.getText();
             String mobile = jTextField6.getText();
             String email = jTextField4.getText();
+            
 
-            PreparedStatement stm = con.prepareStatement("update teachers set Name=?,department=?,Designation=?,Address=?,Mobile=?,email=? Photo=? where id=?");
+            PreparedStatement stm = con.prepareStatement("update teachers set Name=?,department=?,Designation=?,Address=?,Mobile=?,email=?,Photo=? where id=?");
 
             stm.setString(1, name);
             stm.setString(2, depart);
@@ -356,7 +357,8 @@ public class Teachers_update extends javax.swing.JFrame {
             stm.setString(4, address);
             stm.setString(5, mobile);
             stm.setString(6, email);
-            stm.setString(7, id);
+            stm.setString(7, imageName);
+            stm.setString(8, id);
             if (name() && designation() && address() && mobile() && email(jTextField4.getText())) {
                 int a = stm.executeUpdate();
                 if (a == 1) {
@@ -367,7 +369,8 @@ public class Teachers_update extends javax.swing.JFrame {
                 }
             }
         } catch (SQLException ex) {
-            mess.setText("try again");
+//            mess.setText("try again");
+            ex.printStackTrace();
 
         }
 

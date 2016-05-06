@@ -5,6 +5,7 @@
  */
 package North_South_University;
 
+import backup_restore.Restore;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.FileOutputStream;
@@ -172,9 +173,10 @@ public class DBPassword extends javax.swing.JFrame {
             out.writeObject(jTextField1.getText());
             out.writeObject(jTextField2.getText());
             out.flush();
-            out.close();
+            out.close();            
             this.setVisible(false);
-            new Login().setVisible(true);
+            new Restore().setVisible(true);
+            //new Login().setVisible(true);
             
         } catch (IOException ex) {
             Logger.getLogger(DBPassword.class.getName()).log(Level.SEVERE, null, ex);
