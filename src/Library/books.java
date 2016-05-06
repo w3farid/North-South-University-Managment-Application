@@ -15,8 +15,12 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import North_South_University.Students_Main;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 
 /**
  *
@@ -57,6 +61,7 @@ public class books extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -81,7 +86,7 @@ public class books extends javax.swing.JFrame {
         jPanel1.setBackground(java.awt.Color.lightGray);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda.png"))); // NOI18N
-        jButton1.setText("Add");
+        jButton1.setText("ADD NEW BOOKS");
         jButton1.setBorderPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda_1.png"))); // NOI18N
@@ -92,7 +97,7 @@ public class books extends javax.swing.JFrame {
         });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda.png"))); // NOI18N
-        jButton6.setText("Purchase");
+        jButton6.setText("PURCHASE BOOKS");
         jButton6.setBorderPainted(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda_1.png"))); // NOI18N
@@ -103,7 +108,7 @@ public class books extends javax.swing.JFrame {
         });
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda.png"))); // NOI18N
-        jButton7.setText("Return");
+        jButton7.setText("RETURN BOOKS");
         jButton7.setBorderPainted(false);
         jButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda_1.png"))); // NOI18N
@@ -114,7 +119,7 @@ public class books extends javax.swing.JFrame {
         });
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda.png"))); // NOI18N
-        jButton8.setText("Len");
+        jButton8.setText("LEND BOOKS");
         jButton8.setBorderPainted(false);
         jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda_1.png"))); // NOI18N
@@ -125,13 +130,24 @@ public class books extends javax.swing.JFrame {
         });
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda.png"))); // NOI18N
-        jButton9.setText("Delete");
+        jButton9.setText("Delete BOOKS");
         jButton9.setBorderPainted(false);
         jButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda_1.png"))); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda.png"))); // NOI18N
+        jButton2.setText("EDIT BOOKS");
+        jButton2.setBorderPainted(false);
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/iamge/agenda_1.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -146,7 +162,8 @@ public class books extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,7 +171,9 @@ public class books extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(13, 13, 13)
                 .addComponent(jButton6)
                 .addGap(18, 18, 18)
                 .addComponent(jButton8)
@@ -213,7 +232,8 @@ public class books extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(160);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(25);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(20);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,6 +318,7 @@ public class books extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+       updatebook();
     }//GEN-LAST:event_formWindowActivated
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
@@ -336,18 +357,35 @@ public class books extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowIconified
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        if (evt.getClickCount() == 2) {
-            DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
-            ResultSet rs = AllMethod.showpurchaseData((int) dm.getValueAt(jTable1.getSelectedRow(), 0));
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        int a=Integer.parseInt((String) dm.getValueAt(jTable1.getSelectedRow(), 0));
+       
+        if (evt.getClickCount() == 2) {            
+            ResultSet rs = AllMethod.showpurchaseData(a);
+            System.out.println(rs);
             try {
                 while (rs.next()) {
-
+                   purchase_show ps=new purchase_show();
+                   ps.t_pid.setText(rs.getString(1));
+                   ps.c_bid.addItem(rs.getString(2));
+                   ps.t_name.setText(rs.getString(3));
+                   ps.t_ba.setText(rs.getString(4));
+                   ps.t_pub.setText(rs.getString(5));
+                   ps.t_date.setText(rs.getString(6));
+                   ps.t_price.setText(rs.getString(7));
+                   ps.t_qty.setText(rs.getString(8));
+                   ps.setVisible(true);
                 }
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       Edit_books eb=new Edit_books();
+                    eb.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,6 +424,7 @@ public class books extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -397,4 +436,23 @@ public class books extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+ void updatebook() {
+        try {
+            JPopupMenu pop = new JPopupMenu();
+            JMenuItem item = new JMenuItem("UPDATE book");
+            item.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Edit_books eb=new Edit_books();
+                    eb.setVisible(true);
+                }
+            });
+            pop.add(item);
+            jTable1.setComponentPopupMenu(pop);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 }

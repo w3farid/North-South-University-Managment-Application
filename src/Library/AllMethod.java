@@ -248,13 +248,13 @@ public class AllMethod {
         CallableStatement cstm = null;
         try {
             con = new DB().getConnect();
-            cstm = con.prepareCall("{showPurchase(?)}");
+            cstm = con.prepareCall("{call showPurchase(?)}");
             cstm.setInt(1, id);
             ResultSet rs = cstm.executeQuery();
             return rs;
 
         } catch (Exception e) {
-            
+            //e.printStackTrace();
             return null;
         }
      }

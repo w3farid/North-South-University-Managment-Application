@@ -202,12 +202,13 @@ public class Delete_book extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            int did = Integer.parseInt(jTextArea1.getText());
+            int did = Integer.parseInt(jTextField1.getText());
         int bid = Integer.parseInt((String) jComboBox1.getSelectedItem());
         String name = jTextField3.getText();
         int qty = Integer.parseInt(jTextField4.getText());
         String cm = jTextArea1.getText();
         boolean re = AllMethod.deleteBook(did, bid, name, qty, cm);
+            System.out.println(re);
         if (re == true) {
             ImageIcon icon = new ImageIcon("src\\Library\\iamge\\ok.png");
 
@@ -219,7 +220,9 @@ public class Delete_book extends javax.swing.JFrame {
         } catch (Exception e) {
              ImageIcon icon2=new ImageIcon("src\\Library\\iamge\\delete.png");
             JOptionPane.showMessageDialog(null, "Blank not allow", "Return Books", 0, icon2);
+            e.printStackTrace();
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
