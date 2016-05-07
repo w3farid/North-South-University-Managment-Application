@@ -41,10 +41,7 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
         setLocationRelativeTo(null);
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
         attendance();
-        
-        
-        
-        
+
         //titlebar icon 
         ImageIcon icon = new ImageIcon("image\\\\nsu-logo.png");
         Image a = icon.getImage();
@@ -179,10 +176,10 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
         button = new JButton[r];
         txt = new JTextField[r];
 
-        label = new JLabel[r*3];
+        label = new JLabel[r * 3];
         label2 = new JLabel[r];
-        if(label2.length<4){
-           label2 = new JLabel[4]; 
+        if (label2.length < 4) {
+            label2 = new JLabel[4];
         }
 
         int i = 0;
@@ -300,7 +297,7 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Date date = new Date();
-        DateFormat dd = new SimpleDateFormat("dd");
+        DateFormat dd = new SimpleDateFormat("d");
         DateFormat dd2 = new SimpleDateFormat("MMMM");
         DateFormat dd3 = new SimpleDateFormat("YYYY");
         String a = dd.format(date);
@@ -366,7 +363,7 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
             try {
                 Connection con = new DB().getConnect();
 
-                PreparedStatement stm = con.prepareStatement("UPDATE bangla_attendances SET d_" + jComboBox3.getSelectedItem() + "=? where id=?");
+                PreparedStatement stm = con.prepareStatement("UPDATE english_attendances SET d_" + jComboBox3.getSelectedItem() + "=? where id=? and Month=?");
 
                 String att = "0";
                 int a = 0;
@@ -396,6 +393,7 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
                         x++;
                         stm.setString(1, att);
                         stm.setString(2, label[j - 2].getText());
+                        stm.setString(3, (String) jComboBox1.getSelectedItem());
 
 //                        stm.setString(3, label[j].getText());
 //                        stm.setString(4, (String) jComboBox1.getSelectedItem());
@@ -406,13 +404,13 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
 
                 }
 
-                PreparedStatement stm2 = con.prepareStatement("select * from bangla_attendances");
-                PreparedStatement stm3 = con.prepareStatement("UPDATE bangla_attendances SET present=?, absent=?, Late=? where  ID=?");
+                PreparedStatement stm2 = con.prepareStatement("select * from english_attendances");
+                PreparedStatement stm3 = con.prepareStatement("UPDATE english_attendances SET present=?, absent=?, Late=? where  ID=? and Month=?");
 
                 ResultSet rs = stm2.executeQuery();
                 ResultSetMetaData r = stm2.getMetaData();
                 int z = 0;
-                int a33=0;
+                int a33 = 0;
                 while (rs.next()) {
                     p = 0;
                     ab = 0;
@@ -421,12 +419,11 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
                     for (int i = 1; i < r.getColumnCount() - 3; i++) {
                         if (rs.getString(i).equals("P")) {
                             p++;
-                            
 
                         }
                         if (rs.getString(i).equals("A")) {
                             ab++;
-                          //  System.out.println("A");
+                            //  System.out.println("A");
 
                         }
                         if (rs.getString(i).equals("L")) {
@@ -441,12 +438,13 @@ public class Attendances_Create_Monthly_Database_English extends javax.swing.JFr
                     stm3.setInt(2, ab);
                     stm3.setInt(3, l);
                     stm3.setString(4, rs.getString(1));
-                    a33=stm3.executeUpdate();
+                    stm3.setString(5, (String) jComboBox1.getSelectedItem());
+                    a33 = stm3.executeUpdate();
 
                 }
-                if(a33==1){
-                        JOptionPane.showMessageDialog(null, "Successfully Completed");
-                    }
+                if (a33 == 1) {
+                    JOptionPane.showMessageDialog(null, "Successfully Completed");
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }

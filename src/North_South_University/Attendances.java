@@ -552,7 +552,7 @@ public class Attendances extends javax.swing.JFrame {
         try {
             DefaultTableModel m = (DefaultTableModel) attendances.getModel();
             removerow();
-            PreparedStatement stm = con.prepareStatement("SELECT * FROM Math_attendances");
+            PreparedStatement stm = con.prepareStatement("SELECT * FROM accounting_attendances");
             ResultSet rs = stm.executeQuery();
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("dd");
